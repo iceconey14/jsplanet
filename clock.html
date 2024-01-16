@@ -1,0 +1,29 @@
+<p>
+
+DATE:1996-06-28<br>
+<hr>
+COMMENTS:<br>
+
+<script language="JavaScript">    
+	var enabled = 0;    
+
+function TOfunc() {       
+	TO = window.setTimeout( "TOfunc()", 1000 );       
+	var today = new Date();       
+	document.forms[0].elements[0].value = today.toString();    
+	}
+</script>
+
+<center>
+<font size="+2">JavaScript Clock</font><br></center><center>
+<small>Click the 'ON' button to start the clock, 'OFF' to stop it.</small></center>
+<hr>
+<form>
+<center>
+<input type="text" name="disp" value="" size="25" onfocus="this.blur()">
+<br><input type="radio" name="rad" value="OFF" checked onclick="if( enabled ) {        clearTimeout( TO );        enabled = 0;     }"> OFF<input type="radio" name="rad" value="ON" onclick="     if( !enabled ) {        TO = setTimeout( 'TOfunc()', 1000 );        enabled = 1;     }"> ON<br></center></form>
+
+<hr>
+If you want this script just choose "Save Frame As..." (in Netscape) when you have the focus on the frame.<p>
+<i>URL: http://www.geocities.com/SiliconValley/7116/jv_clk1.html</i>
+
