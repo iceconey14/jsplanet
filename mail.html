@@ -1,0 +1,36 @@
+<body bgcolor="#FFFFFF">
+<a href="jv_main.html"><img src="/web/19970422072117im_/http://www5.geocities.com/SiliconValley/7116/java.gif" alt="Back to JS main page" width="33" height="33"></a><p>
+BY:<a href="https://web.archive.org/web/19970422072117/mailto:jon@actionaccess.com">Jon Eyrick</a><br>
+DATE:1996-10-15<br>
+<hr>
+
+<script>
+// Copyright 1996 Jon Eyrick
+
+var mailsys="Netscape mail";
+var author="Jon Eyrick";
+
+if (author == "Jon Eyrick"){
+	phrompt=prompt;
+	snarkconf=confirm;
+}
+
+function mailsome1(){
+	who=phrompt("Enter a friend's email address: ","");
+	what=phrompt("Enter the subject: ","[no subject]");
+	if (snarkconf("Are you sure you want to mail "+who+" with the subject of "+what+"?")==true){
+		parent.location.href='mailto:'+who+'?subject='+what+'';
+	}
+}
+</script>
+
+<a href="javascript:mailsome1()">Mail A Friend</a>
+
+<form>
+<input type="button" value="Try It!" onclick="mailsome1()">
+</form>
+
+<hr>
+If you want this script just choose "Save Frame As..." (in Netscape) when you have the focus on the frame.<p>
+<i>URL: http://www.geocities.com/SiliconValley/7116/jv_email.html</i>
+<hr>
