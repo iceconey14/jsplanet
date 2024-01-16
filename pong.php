@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>
+DATE:1996-07-06<br>
+<hr>
+COMMENTS:
+
+<script language="JavaScript">
+<!--  to hide script contents from old browsers
+// rev 0.04
+var crlf = "\r\n";  
+// should determine from browser type
+	var x = 1;
+	var y = 1;
+	var dx = 1;
+	var dy = 1;
+	var s = "";
+	var u = 0;
+	var oops_flag = false;
+	var score = 0;
+
+function move1() {
+    x += dx;
+    if (x > 31) { 
+	x -= 2 * Math.abs(dx); 
+    if (dx > 0) dx = -dx; }
+    if (x <  0) { 
+	x += 2 * Math.abs(dx); 
+    if (dx < 0) dx = -dx; }
+	y += dy;
+    if (y > 14) { 
+	y -= 2 * Math.abs(dy); 
+    if (dy > 0) dy = -dy; 
+    if (Math.abs(x - 2*u - 1) > 2) {
+	oops_flag = true;
+    }
+    else {
+	score += 1;		  
+	}    
+    }
+    if (y <  0) { y += 2 * Math.abs(dy); 
+if (dy < 0) dy = -dy; }
+  }
+
+function display1() {
+    var s1 = ""
+    var i,j;
+    if (oops_flag) return "it makes sense u messed up...";
+    for (j=0;j<15;j++) {
+      for (i=0;i<32;i++) {
+	if (j == y && i == x) s1 += "o";
+        else s1 += ".";
+      }
+      s1 += crlf;
+    }
+    var s2 = ""
+    for (i=0;i<16;i++) {
+       if (u == i) s2 += "==";
+       else s2 += "..";
+    }
+    return (s1+s2)
+  }
+  var timerID = null;
+  var timerRunning = false;
+  var myform;
+
+function stopclock (){
+        if(timerRunning) clearTimeout(timerID);
+        timerRunning = false;
+  }
+
+function startclock (form) {
+        myform = form;
+	oops_flag = false;
+	if (navigator.userAgent.indexOf("Mac") > 2) crlf = "\n";
+	// Make sure the clock is stopped
+        stopclock();
+        dotime();
+  }
+
+function dotime () {
+	move1();
+        if (myform != null) {
+	  myform.text3.value = display1();	  
+	  myform.score.value = " " + score;
+	}
+	if (!oops_flag) timerID = setTimeout("dotime()",200);
+        timerRunning = true;
+  }
+// end hiding contents from old browsers  -->
+</script>
+
+<center><h1>Pong</h1></center>
+
+<?php 
+echo "Press start to run. Wave your mouse directly over the dashes under the text area to 
+move the "paddle".";
+?>
+<hr>
+<form name="myForm">
+<textarea name="text3" rows="16" cols="34" wrap>
+[game field]
+</textarea>
+Score: <input type="text" name="score" size="10" value="0">
+<p>
+<a href="" onmouseover="u =  0">\\\</a>
+<a href="" onmouseover="u =  1">///</a>
+<a href="" onmouseover="u =  2">\\\</a>
+<a href="" onmouseover="u =  3">///</a>
+<a href="" onmouseover="u =  4">\\\</a>
+<a href="" onmouseover="u =  5">///</a>
+<a href="" onmouseover="u =  6">\\\</a>
+<a href="" onmouseover="u =  7">///</a>
+<a href="" onmouseover="u =  8">\\\</a>
+<a href="" onmouseover="u =  9">///</a>
+<a href="" onmouseover="u = 10">\\\</a>
+<a href="" onmouseover="u = 11">///</a>
+  </body>
+</html>
+<a href="" onmouseover="u = 12">\\\</a>
+<a href="" onmouseover="u = 13">///</a>
+<a href="" onmouseover="u = 14">\\\</a>
+<a href="" onmouseover="u = 15">///</a>
+.... wave your cursor here
+<br><br>
